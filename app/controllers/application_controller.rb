@@ -1,7 +1,5 @@
 require 'pry'
 
-require './config/environment'
-
 
 class ApplicationController < Sinatra::Base
 
@@ -10,6 +8,10 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "secret"
+  end
+
+  get '/' do 
+    erb :index
   end
 
 end ## class end

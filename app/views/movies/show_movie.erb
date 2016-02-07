@@ -1,0 +1,11 @@
+
+
+<p> <%= @movie.name %> </p>
+
+<a href="/movies/<%= @movie.id %>/edit">Edit Movie</a>
+
+<h3>Delete Movie</h3>
+<form method="post" action="/movies/<%= @movie.id %>/delete">
+ <input id="hidden" type="hidden" name="_method" value="DELETE">
+ <button type="submit">Delete Movie</button>
+<form>

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   get '/signup' do
     if logged_in?(session)
-      redirect '/'  ## need to create a movies page that shows all movies for each user #####
+      redirect '/movies'  ## need to create a movies page that shows all movies for each user #####
     else 
     erb :'/users/signup'
   end
@@ -14,13 +14,13 @@ class UsersController < ApplicationController
       redirect to '/signup'
     else
       session[:user_id] = @user.id
-      redirect '/'
+      redirect '/movies'
     end
   end
 
   get '/login' do 
     if logged_in?(session)
-      redirect '/'
+      redirect '/movies'
     else
     erb :"/users/login"
   end
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     user = User.find_by(name: params[:name])
     if user && user.authenticate(params[:password])
       session[:id] = user.id
-      redirect '/'
+      redirect '/movies'
     else
       redirect '/login'
     end

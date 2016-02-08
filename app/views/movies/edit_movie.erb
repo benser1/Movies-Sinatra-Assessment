@@ -1,18 +1,18 @@
-<h1>Edit Movie</h1>
+<center><h1>Edit Movie</h1></center>
 
 
 <form method="POST" action="/movies/<%= @movie.id %>/edit">
-  <h3>Movie Name:</h3> <textarea type="text" name="movie[name]"><%= @movie.name %></textarea>
-  <h3>Year Released: </h3><textarea type="text" name="movie[year_released]"><%= @movie.year_released %></textarea>
-  <a target="_blank" href='https://google.com/search?q=<%=@movie.name%>+release+date'>Search Movie Year</a>
+  <pre><h3>  Movie Name</h3> <textarea type="text" name="movie[name]"><%= @movie.name %></textarea></pre>
+  <pre><h3> Year Released </h3> <textarea type="text" name="movie[year_released]"><%= @movie.year_released %></textarea> <a target="_blank" href='https://google.com/search?q=<%=@movie.name%>+release+date'>Search Movie Year</a>
 
-  <br><br><button type="submit">Edit Movie</button>
+      <button type="submit"><strong>Edit Movie</strong></button></pre>
 </form>
 
-<br><h3>Delete Movie</h3>
 <form method="post" action="/movies/<%= @movie.id %>/delete">
- <input id="hidden" type="hidden" name="_method" value="DELETE">
- <button type="submit">Delete Movie</button>
-<form>
+ <pre><h3> Delete Movie</h3>        <button type="submit"><strong>Delete</strong></button></pre>
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+</form>
 
+
+<blockquote><center><a href="/movies">Go Back to My Collection</a></center></blockquote>
 

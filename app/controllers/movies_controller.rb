@@ -18,7 +18,8 @@ class MoviesController < ApplicationController
   end
 
   post '/movies/new' do 
-      @movie = Movie.find_or_create_by(:name => params[:movie][:name], :year_released => params[:movie][:year_released])
+      @movie = Movie.find_or_create_by(:name => params[:movie][:name])
+      @movie.year_released = params[:movie][:year_released]
       @user = current_user(session)
       @movie.user_id = @user.id
       @movie.save

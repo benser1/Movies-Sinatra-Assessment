@@ -2,9 +2,17 @@
 
 
 <form method="POST" action="/movies/<%= @movie.id %>/edit">
-  <textarea type="text" name="movie[name]"><%= @movie.name %></textarea>
-  <textarea type="text" name="movie[year_released]"><%= @movie.year_released %></textarea>
-  <button type="submit">Edit Movie</button>
+  <h3>Movie Name:</h3> <textarea type="text" name="movie[name]"><%= @movie.name %></textarea>
+  <h3>Year Released: </h3><textarea type="text" name="movie[year_released]"><%= @movie.year_released %></textarea>
+  <a target="_blank" href='https://google.com/search?q=<%=@movie.name%>+release+date'>Search Movie Year</a>
+
+  <br><br><button type="submit">Edit Movie</button>
 </form>
+
+<br><h3>Delete Movie</h3>
+<form method="post" action="/movies/<%= @movie.id %>/delete">
+ <input id="hidden" type="hidden" name="_method" value="DELETE">
+ <button type="submit">Delete Movie</button>
+<form>
 
 

@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
   end
 
   post '/movies/new' do 
-      @movie = Movie.new(:name => params[:movie][:name], :year_released => params[:movie][:year_released])
+      @movie = Movie.find_or_create_by(:name => params[:movie][:name], :year_released => params[:movie][:year_released])
       @user = current_user(session)
       @movie.user_id = @user.id
       @movie.save
@@ -53,7 +53,7 @@ class MoviesController < ApplicationController
   end
 
   delete '/movies/:id/delete' do
-    if logged_in?
+    if logged_in?(session)
        @movie = Movie.find_by_id(params[:id])
        if session[:id] == @movie.user_id
         @movie.delete 
